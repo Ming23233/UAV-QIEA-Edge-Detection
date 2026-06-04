@@ -1,0 +1,3 @@
+model,epochs,seed,ap50_95,ap50,recall50,note
+YOLOv5n,50,42,0.1122,0.2228,0.2379,Contextual lightweight-detector record on the same converted VisDrone version; not used as a controlled cross-framework ranking.
+YOLOv8n,50,42,0.1510,0.2701,0.2972,Contextual lightweight-detector record on the same converted VisDrone version; not used as a controlled cross-framework ranking.

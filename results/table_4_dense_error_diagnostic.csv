@@ -1,0 +1,4 @@
+model,tp_at_0_5,error_events,missed_detections,missed_percent,localization_errors,localization_percent,false_positives,false_positive_percent,recall_at_0_5
+Baseline,2478,16631,11200,67.3,2063,12.4,3368,20.3,0.1812
++P2,2946,14653,10732,73.2,1399,9.5,2521,17.2,0.2154
+QIEA-Final,3035,15720,10643,67.7,1699,10.8,3378,21.5,0.2219

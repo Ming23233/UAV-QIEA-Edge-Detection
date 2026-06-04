@@ -1,0 +1,4 @@
+model,zero_shot_ap,fine_tuned_ap,fine_tuned_ap50,ap_small,recall50
+Baseline,0.0214,0.0604,0.1634,0.0007,0.7335
++P2,0.0206,0.0661,0.1811,0.0026,0.7521
+QIEA-Final,0.0143,0.0581,0.1659,0.0024,0.7494

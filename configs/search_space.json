@@ -1,0 +1,117 @@
+{
+  "stage": "paper_qiea_lightweight_search_20260604",
+  "name": "qiea_lightweight_uav_small_object_search",
+  "paper_title": "Edge-Aware UAV Small-Object Detection With P2 Enhancement and Lightweight Structure-Search Analysis",
+  "base_model": "YOLOX-Nano",
+  "dataset": "VisDrone-DET converted to COCO format",
+  "input_size": [640, 640],
+  "base_exp": "exps/example/uav/yolox_nano_visdrone_det_640_base.py",
+  "fixed": {
+    "use_p2": true,
+    "proxy_epochs": 10,
+    "full_training_epochs": 100,
+    "proxy_seed": 42,
+    "main_full_training_seeds": [42, 43, 44],
+    "search_candidate_verification_seed": 42
+  },
+  "search_budget": {
+    "qiea_population": 4,
+    "qiea_generations": 4,
+    "qiea_candidates": 16,
+    "random_candidates": 16,
+    "ga_population": 4,
+    "ga_generations": 4,
+    "sa_qubo_steps": 16
+  },
+  "variables": [
+    {
+      "name": "coord_attention",
+      "paper_name": "CA",
+      "type": "binary",
+      "values": [0, 1],
+      "description": "Coordinate attention block on the P2 feature branch."
+    },
+    {
+      "name": "channel_spatial_attention",
+      "paper_name": "CSA",
+      "type": "binary",
+      "values": [0, 1],
+      "description": "Channel-spatial attention block on the P2 feature branch."
+    },
+    {
+      "name": "tiny_context",
+      "paper_name": "Context",
+      "type": "binary",
+      "values": [0, 1],
+      "description": "Lightweight contextual refinement on the P2 feature branch."
+    },
+    {
+      "name": "scale_aware_fusion",
+      "paper_name": "Fusion",
+      "type": "binary",
+      "values": [0, 1],
+      "description": "P3-to-P2 scale-aware semantic fusion."
+    },
+    {
+      "name": "small_obj_loss_weight",
+      "paper_name": "small-object loss weight",
+      "type": "categorical_float",
+      "values": [1.0, 1.25, 1.5],
+      "description": "Foreground loss multiplier for COCO-small boxes."
+    },
+    {
+      "name": "center_radius",
+      "paper_name": "center sampling radius",
+      "type": "categorical_float",
+      "values": [2.5, 3.0, 3.5],
+      "description": "YOLOX center-prior radius for dynamic label assignment."
+    }
+  ],
+  "fitness": {
+    "formula": "AP_small + 0.30 * AP50 + 0.20 * Recall50 - C(a)",
+    "complexity_penalty": "C(a) = 0.0015 * m + 0.002 * max(0, small_obj_loss_weight - 1.0) + 0.001 * abs(center_radius - 2.5)",
+    "notes": "m is the number of enabled binary modules among CA, CSA, Context, and Fusion. The same proxy fitness is used for QIEA, random search, GA, and SA/QUBO heuristic comparison."
+  },
+  "selected_proxy_candidate": {
+    "candidate_id": "p2_ca1_csa0_ctx0_fus0_slw125_cr25",
+    "use_p2": true,
+    "coord_attention": true,
+    "channel_spatial_attention": false,
+    "tiny_context": false,
+    "scale_aware_fusion": false,
+    "small_obj_loss_weight": 1.25,
+    "center_radius": 2.5
+  },
+  "full_training_verification_candidates": [
+    {
+      "method": "Random-best",
+      "candidate_id": "p2_ca1_csa0_ctx0_fus0_slw100_cr30",
+      "coord_attention": true,
+      "channel_spatial_attention": false,
+      "tiny_context": false,
+      "scale_aware_fusion": false,
+      "small_obj_loss_weight": 1.0,
+      "center_radius": 3.0
+    },
+    {
+      "method": "GA-best",
+      "candidate_id": "p2_ca0_csa0_ctx0_fus0_slw125_cr30",
+      "coord_attention": false,
+      "channel_spatial_attention": false,
+      "tiny_context": false,
+      "scale_aware_fusion": false,
+      "small_obj_loss_weight": 1.25,
+      "center_radius": 3.0
+    },
+    {
+      "method": "SA/QUBO-best",
+      "candidate_id": "p2_ca0_csa0_ctx1_fus0_slw125_cr35",
+      "coord_attention": false,
+      "channel_spatial_attention": false,
+      "tiny_context": true,
+      "scale_aware_fusion": false,
+      "small_obj_loss_weight": 1.25,
+      "center_radius": 3.5
+    }
+  ]
+}

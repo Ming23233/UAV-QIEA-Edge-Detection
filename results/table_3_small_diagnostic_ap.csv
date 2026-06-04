@@ -1,0 +1,4 @@
+model,very_ap,very_ap50,dense_small_ap,dense_ap50,occluded_small_ap,occluded_ap50
+Baseline,0.0104,0.0313,0.0240,0.0605,0.0108,0.0324
++P2,0.0207,0.0598,0.0323,0.0776,0.0150,0.0437
+QIEA-Final,0.0154,0.0467,0.0296,0.0721,0.0137,0.0386

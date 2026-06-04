@@ -1,0 +1,69 @@
+project_name: UAV-QIEA-Edge-Detection
+paper_title: "Edge-Aware UAV Small-Object Detection With P2 Enhancement and Lightweight Structure-Search Analysis"
+
+base_detector:
+  family: YOLOX
+  variant: YOLOX-Nano
+  input_size: [640, 640]
+  classes: 10
+
+datasets:
+  primary:
+    name: VisDrone-DET
+    format: COCO
+    train_annotations: instances_train.json
+    val_annotations: instances_val.json
+  external_case:
+    name: AU-AIR
+    format: COCO
+    input_size: [416, 416]
+    protocol:
+      - zero-shot
+      - 30_percent_target_domain_finetuning
+
+model_variants:
+  baseline:
+    use_p2: false
+  plus_p2:
+    use_p2: true
+    strides: [4, 8, 16, 32]
+  qiea_final:
+    use_p2: true
+    coord_attention: true
+    channel_spatial_attention: false
+    tiny_context: false
+    scale_aware_fusion: false
+    small_obj_loss_weight: 1.25
+    center_radius: 2.5
+
+training:
+  epochs: 100
+  seeds: [42, 43, 44]
+  batch_size: 8
+  optimizer: SGD
+  learning_rate: 0.0015
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 1
+  no_aug_epochs: 5
+  amp: true
+  data_workers: 2
+
+proxy_search:
+  epochs_per_candidate: 10
+  seed: 42
+  batch_size: 10
+  population_size: 4
+  generations: 4
+  candidate_budget: 16
+  compared_methods:
+    - QIEA
+    - random
+    - GA
+    - SA/QUBO_heuristic
+
+deployment_metrics:
+  - params
+  - FLOPs
+  - batch1_gpu_latency
+  - peak_memory

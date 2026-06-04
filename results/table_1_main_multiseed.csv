@@ -1,0 +1,4 @@
+model,seeds,ap50_95_mean,ap50_95_std,ap_small_mean,ap_small_std,recall50_mean,recall50_std,small_object_gain_percent
+Baseline,3,0.0635,0.0002,0.0295,0.0010,0.2936,0.0022,0.00
++P2,3,0.0684,0.0013,0.0387,0.0011,0.2964,0.0021,31.10
+QIEA-Final,3,0.0530,0.0022,0.0328,0.0019,0.3056,0.0069,11.08

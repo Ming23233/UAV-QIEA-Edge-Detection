@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "UAV-QIEA Edge Detection"
+message: "If you use this code, please cite the associated manuscript and this repository."
+type: software
+authors:
+  - family-names: "Lei"
+    given-names: "Wuming"
+  - family-names: "Gao"
+    given-names: "Yanbin"
+  - family-names: "Sun"
+    given-names: "Mingyan"
+  - family-names: "Li"
+    given-names: "Xiaobin"
+  - family-names: "Liang"
+    given-names: "Xuechen"
+repository-code: "https://github.com/Ming23233/UAV-QIEA-Edge-Detection"
+license: MIT
+keywords:
+  - UAV object detection
+  - small object detection
+  - edge computing
+  - quantum-inspired evolutionary algorithm
+  - YOLOX

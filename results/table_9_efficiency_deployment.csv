@@ -1,0 +1,4 @@
+model,params_m,delta_params_percent,flops_g,delta_flops_percent,latency_ms,delta_latency_percent,memory_mb,delta_ap_small_percent
+Baseline,0.899,0.00,2.559,0.00,5.373,0.00,30.2,0.00
++P2,0.940,4.56,4.201,64.17,7.598,41.41,53.2,31.10
+QIEA-Final,0.941,4.67,4.205,64.32,8.288,54.25,57.0,11.08

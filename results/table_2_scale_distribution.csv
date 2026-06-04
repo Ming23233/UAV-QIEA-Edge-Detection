@@ -1,0 +1,6 @@
+dataset_split,images,objects,objects_per_image,very_small_percent,coco_small_percent,medium_percent,large_percent,median_sqrt_area_pixels
+VisDrone train,6471,344737,53.27,25.91,60.37,34.08,5.55,26.08
+VisDrone val,548,38791,70.79,30.81,68.54,28.70,2.76,22.80
+AU-AIR train,22875,76603,3.35,1.06,11.60,44.38,44.02,85.10
+AU-AIR val,2962,17523,5.92,2.52,16.26,48.23,35.50,68.59
+AU-AIR test,6986,37851,5.42,0.95,10.00,51.58,38.42,80.12

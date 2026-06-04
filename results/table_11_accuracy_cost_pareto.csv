@@ -1,0 +1,3 @@
+model,delta_ap_small,delta_flops_g,delta_latency_ms,ap_per_gflop,ap_per_ms,pareto_note
++P2,0.0092,1.642,2.225,0.00559,0.00413,Pareto-preferred tested YOLOX-Nano variant in AP-small cost space.
+QIEA-Final,0.0033,1.646,2.915,0.00199,0.00112,Recall-oriented candidate with lower marginal AP-small-to-cost gain than +P2.

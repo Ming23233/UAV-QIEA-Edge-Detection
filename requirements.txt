@@ -1,0 +1,13 @@
+numpy
+opencv-python
+pillow
+pycocotools
+scipy
+matplotlib
+pandas
+tqdm
+loguru
+thop
+tabulate
+python-docx
+seaborn

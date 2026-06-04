@@ -1,0 +1,4 @@
+candidate,training_status,best_epoch,best_ap50_95,final_epoch,final_epoch_ap50_95
+Random-best,100/100 completed,95,0.068441,,
+GA-best,100/100 completed,96,0.068359,,
+SA/QUBO-best,100/100 completed,99,0.068011,100,0.067953

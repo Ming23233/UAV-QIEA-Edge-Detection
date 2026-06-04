@@ -1,0 +1,37 @@
+{
+  "paper_title": "Edge-Aware UAV Small-Object Detection With P2 Enhancement and Lightweight Structure-Search Analysis",
+  "version": "2026-06-04",
+  "note": "Small reproducibility artifacts aligned with the current manuscript. Raw datasets, checkpoints, full logs, and large detection-output files are intentionally excluded.",
+  "main_multiseed": [
+    {"model": "Baseline", "seeds": 3, "ap50_95_mean": 0.0635, "ap50_95_std": 0.0002, "ap_small_mean": 0.0295, "ap_small_std": 0.0010, "recall50_mean": 0.2936, "recall50_std": 0.0022, "small_object_gain_percent": 0.00},
+    {"model": "+P2", "seeds": 3, "ap50_95_mean": 0.0684, "ap50_95_std": 0.0013, "ap_small_mean": 0.0387, "ap_small_std": 0.0011, "recall50_mean": 0.2964, "recall50_std": 0.0021, "small_object_gain_percent": 31.10},
+    {"model": "QIEA-Final", "seeds": 3, "ap50_95_mean": 0.0530, "ap50_95_std": 0.0022, "ap_small_mean": 0.0328, "ap_small_std": 0.0019, "recall50_mean": 0.3056, "recall50_std": 0.0069, "small_object_gain_percent": 11.08}
+  ],
+  "selected_qiea_candidate": {
+    "candidate_id": "p2_ca1_csa0_ctx0_fus0_slw125_cr25",
+    "use_p2": true,
+    "coord_attention": true,
+    "channel_spatial_attention": false,
+    "tiny_context": false,
+    "scale_aware_fusion": false,
+    "small_obj_loss_weight": 1.25,
+    "center_radius": 2.5
+  },
+  "search_candidate_fulltrain_seed42": [
+    {"candidate": "Random-best", "training_status": "100/100 completed", "best_epoch": 95, "best_ap50_95": 0.068441},
+    {"candidate": "GA-best", "training_status": "100/100 completed", "best_epoch": 96, "best_ap50_95": 0.068359},
+    {"candidate": "SA/QUBO-best", "training_status": "100/100 completed", "best_epoch": 99, "best_ap50_95": 0.068011, "final_epoch": 100, "final_epoch_ap50_95": 0.067953}
+  ],
+  "scale_bins": {
+    "very_small": "area < 16^2 pixels",
+    "coco_small": "area < 32^2 pixels",
+    "medium": "32^2 <= area < 96^2 pixels",
+    "large": "area >= 96^2 pixels"
+  },
+  "excluded_from_repository": [
+    "raw dataset images and annotations governed by third-party dataset licenses",
+    "model checkpoints and pretrained weights",
+    "full stdout/stderr logs with local paths",
+    "large detection-output JSON files"
+  ]
+}

@@ -1,0 +1,5 @@
+method,candidates,best_fitness,ap_small,recall50,gain_over_random_percent
+QIEA,16,0.0411,0.0024,0.1842,7.19
+Random,16,0.0383,0.0019,0.1788,0.00
+GA,16,0.0431,0.0026,0.1895,12.45
+SA/QUBO heuristic,16,0.0430,0.0028,0.1954,12.12
