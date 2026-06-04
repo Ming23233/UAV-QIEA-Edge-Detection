@@ -1,4 +1,4 @@
-# UAV-QIEA Edge Detection
+# UAV-QIEA Lightweight UAV Small-Object Detection
 
 This repository contains the pre-submission research code for an edge-constrained UAV small-object detection study based on a YOLOX/ByteTrack-style detector. The project evaluates a high-resolution P2 detection branch and a quantum-inspired evolutionary algorithm (QIEA) for lightweight structure candidate search.
 
