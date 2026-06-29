@@ -1,10 +1,18 @@
-# UAV-QIEA Lightweight UAV Small-Object Detection
+# UAV-QIEA Edge Detection
 
 This repository contains the pre-submission research code for an edge-constrained UAV small-object detection study based on a YOLOX/ByteTrack-style detector. The project evaluates a high-resolution P2 detection branch and a quantum-inspired evolutionary algorithm (QIEA) for lightweight structure candidate search.
 
 The central claim of the study is not that QIEA always gives the highest final detection accuracy. The evidence supports a conservative conclusion: the P2 branch provides stable small-object detection gains, while QIEA is useful for searching and screening lightweight architectural candidates under accuracy and deployment-efficiency constraints. Full-training verification is needed because proxy-search rankings may differ from final 100-epoch rankings.
 
-This is a code release for paper submission. It intentionally does not include datasets, model checkpoints, raw logs, pretrained weights, or large detection-output files. The `results/` directory contains only small manuscript-aligned CSV/JSON/Markdown summary artifacts for reviewer inspection.
+This is a code release for paper submission. It intentionally does not bundle datasets, raw logs, pretrained weights, or large detection-output files. YOLOX-Nano+-P2 checkpoints are available on Hugging Face, and the `results/` directory contains only small manuscript-aligned CSV/JSON/Markdown summary artifacts for reviewer inspection.
+
+## Model Checkpoints
+
+YOLOX-Nano+-P2 checkpoints are hosted on Hugging Face:
+
+- [Ming233/YOLOX-Nano-P2-UAV-Small-Detection](https://huggingface.co/Ming233/YOLOX-Nano-P2-UAV-Small-Detection)
+
+The Hugging Face repository includes the released checkpoints, model card, experiment configs, metadata, and lightweight result summaries.
 
 ## Repository Layout
 
@@ -145,7 +153,7 @@ python scripts/diagnose_small_object_errors.py \
 
 The lightweight result artifacts in `results/` mirror the current manuscript tables: multi-seed VisDrone results, scale statistics, diagnostic small-object AP, dense-small error diagnosis, proxy search comparison, Stage26 full-training verification, deployment-cost records, AU-AIR case results, and marginal accuracy-cost analysis.
 
-The repository does not bundle raw datasets, checkpoints, full logs, or large detection JSON files. Those are intentionally excluded because of dataset licensing, file size, and local-path hygiene.
+The repository does not bundle raw datasets, full logs, or large detection JSON files. Model checkpoints are hosted separately on Hugging Face to keep this GitHub repository lightweight and reproducible.
 
 ## Citation
 
